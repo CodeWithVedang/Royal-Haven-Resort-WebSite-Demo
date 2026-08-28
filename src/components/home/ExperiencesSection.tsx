@@ -1,5 +1,5 @@
 import { Section } from "@/components/layout/PageHero";
-import { ExperienceFeature, ExperienceRow } from "@/components/experiences/ExperienceCard";
+import { ExperienceFeature, ExperienceTile } from "@/components/experiences/ExperienceCard";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
@@ -7,6 +7,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { experiences } from "@/data/experiences";
 
 const [feature, ...rest] = experiences;
+const beside = rest.slice(0, 2);
+const below = rest.slice(2, 5);
 
 export function ExperiencesSection() {
   return (
@@ -25,15 +27,31 @@ export function ExperiencesSection() {
           />
         </Reveal>
 
-        <div className="mt-14 grid gap-12 lg:mt-20 lg:grid-cols-12 lg:gap-14">
+        <div className="mt-14 grid gap-4 lg:mt-20 lg:grid-cols-12 lg:gap-5">
           <div className="lg:col-span-7">
             <ExperienceFeature experience={feature} />
           </div>
-          <ul className="lg:col-span-5">
-            {rest.slice(0, 4).map((experience, index) => (
-              <ExperienceRow key={experience.slug} experience={experience} index={index + 1} />
+          <div className="grid gap-4 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1 lg:gap-5">
+            {beside.map((experience, index) => (
+              <ExperienceTile
+                key={experience.slug}
+                experience={experience}
+                delay={80 + index * 80}
+                sizes="(min-width: 1024px) 38vw, (min-width: 640px) 48vw, 100vw"
+                className="aspect-3/2 sm:aspect-4/5 lg:min-h-44 lg:flex-1 lg:aspect-auto"
+              />
             ))}
-          </ul>
+          </div>
+
+          {below.map((experience, index) => (
+            <ExperienceTile
+              key={experience.slug}
+              experience={experience}
+              delay={index * 80}
+              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 48vw, 100vw"
+              className="aspect-3/2 sm:aspect-4/5 lg:col-span-4 lg:aspect-3/2"
+            />
+          ))}
         </div>
       </Container>
     </Section>
