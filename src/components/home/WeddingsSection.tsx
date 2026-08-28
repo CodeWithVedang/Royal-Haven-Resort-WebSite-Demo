@@ -4,7 +4,11 @@ import { Container } from "@/components/ui/Container";
 import { Figure } from "@/components/ui/Figure";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { weddingsIntro, weddingVenues } from "@/data/weddings";
+import { weddingPackages, weddingsIntro, weddingVenues } from "@/data/weddings";
+import { formatINR } from "@/lib/format";
+
+/** The package most families pick — teased under the venue list so the column fills. */
+const signature = weddingPackages.find((pkg) => pkg.featured) ?? weddingPackages[0];
 
 export function WeddingsSection() {
   return (
@@ -107,15 +111,36 @@ export function WeddingsSection() {
                 Eighteen weddings a season, and never two at once. Tell us the dates and we will come
                 back within a working day with what is open and what it costs.
               </p>
-              <Button
-                href="/weddings#enquiry"
-                variant="brass"
-                arrow
-                className="mt-7"
-              >
+              <Button href="/weddings#enquiry" variant="brass" arrow className="mt-7">
                 Enquire about your date
               </Button>
             </Reveal>
+
+            {signature ? (
+              <Reveal variant="img" delay={220} className="group relative isolate mt-10">
+                <Figure
+                  photo={weddingsIntro.photos[2]}
+                  sizes="(min-width: 1024px) 38vw, 100vw"
+                  source="feature"
+                  scrim="bottom"
+                  zoom
+                  className="aspect-3/2 lg:aspect-16/9"
+                />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 p-6">
+                  <p className="t-caption tracking-[0.18em] uppercase text-brass-soft">
+                    Most-booked package
+                  </p>
+                  <p className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <span className="font-serif text-2xl leading-none font-light text-cream">
+                      {signature.name}
+                    </span>
+                    <span className="t-caption num text-cream/70">
+                      {signature.guests} · from {formatINR(signature.from)}
+                    </span>
+                  </p>
+                </div>
+              </Reveal>
+            ) : null}
           </div>
         </div>
       </Container>
