@@ -93,7 +93,7 @@ export function Intro() {
                 </Reveal>
                 <Reveal variant="img" delay={200} className="min-h-32 flex-1">
                   <Figure
-                    photo={brandMoments.textiles}
+                    photo={brandMoments.gardens}
                     sizes="(min-width: 1024px) 22vw, 38vw"
                     source="card"
                     className="h-full"
