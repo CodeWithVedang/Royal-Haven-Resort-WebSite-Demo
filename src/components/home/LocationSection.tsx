@@ -2,11 +2,24 @@ import { Section } from "@/components/layout/PageHero";
 import { MapPanel } from "@/components/location/MapPanel";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { Figure } from "@/components/ui/Figure";
 import { IconPin } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { distances } from "@/data/location";
+import { locationPhotos } from "@/data/photos";
 import { addressOneLine, directionsHref, site } from "@/lib/site";
+
+/** What the map cannot show — the three places guests actually ask about. */
+const nearby = [
+  {
+    label: "Lake Pichola",
+    detail: "A boat at six, back by eight",
+    photo: locationPhotos.lakeSunset,
+  },
+  { label: "City Palace", detail: "25 minutes, best before ten", photo: locationPhotos.cityPalace },
+  { label: "Jag Niwas", detail: "Seen from our lake terrace", photo: locationPhotos.lakePalace },
+];
 
 export function LocationSection() {
   return (
@@ -67,6 +80,23 @@ export function LocationSection() {
                 Illustrated map · live Google Maps loads once an API key is configured
               </p>
             </Reveal>
+
+            <ul className="mt-8 grid grid-cols-3 gap-3.5 lg:gap-5">
+              {nearby.map((place, index) => (
+                <Reveal as="li" variant="img" key={place.label} delay={80 + index * 70}>
+                  <Figure
+                    photo={place.photo}
+                    sizes="(min-width: 1024px) 19vw, 32vw"
+                    source="card"
+                    className="aspect-3/4"
+                  />
+                  <p className="t-caption mt-3 tracking-[0.14em] uppercase text-muted">
+                    {place.label}
+                  </p>
+                  <p className="t-caption text-stone">{place.detail}</p>
+                </Reveal>
+              ))}
+            </ul>
           </div>
         </div>
       </Container>

@@ -29,14 +29,22 @@ const directBooking = [
 export function CtaBand() {
   return (
     <section className="relative isolate overflow-hidden">
-      <Figure
-        photo={brandMoments.poolNight}
-        source="band"
-        sizes="100vw"
-        objectPosition="center 60%"
-        className="absolute inset-0 h-full w-full"
+      {/* The copy sets the band height, so the photograph is positioned out of flow —
+          a `Figure` stays `relative`, and h-full against an auto parent collapses. */}
+      <div aria-hidden="true" className="absolute inset-0">
+        <Figure
+          photo={brandMoments.poolNight}
+          source="band"
+          sizes="100vw"
+          objectPosition="center 60%"
+          className="h-full w-full"
+        />
+      </div>
+      {/* Graded rather than flat, so the photograph still reads on the right. */}
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-r from-ink/88 via-ink/74 to-ink/50"
       />
-      <span aria-hidden="true" className="absolute inset-0 bg-ink/72" />
 
       <Container width="wide" className="relative py-20 lg:py-28">
         <div className="grid gap-14 lg:grid-cols-12 lg:items-center lg:gap-16">
@@ -73,7 +81,7 @@ export function CtaBand() {
           </Reveal>
 
           <Reveal delay={140} className="on-dark lg:col-span-5">
-            <div className="border border-cream/18 bg-ink/45 p-7 backdrop-blur-sm lg:p-9">
+            <div className="border border-cream/18 bg-ink/60 p-7 backdrop-blur-sm lg:p-9">
               <p className="t-caption tracking-[0.2em] uppercase text-brass-soft">
                 Booking direct
               </p>

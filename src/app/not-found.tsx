@@ -14,14 +14,16 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <section className="relative isolate flex min-h-[86svh] items-center">
-      <Figure
-        photo={brandMoments.archway}
-        source="hero"
-        priority
-        quality={75}
-        sizes="100vw"
-        className="absolute inset-0 h-full w-full"
-      />
+      <div aria-hidden="true" className="absolute inset-0">
+        <Figure
+          photo={brandMoments.archway}
+          source="hero"
+          priority
+          quality={75}
+          sizes="100vw"
+          className="h-full w-full"
+        />
+      </div>
       <span aria-hidden="true" className="absolute inset-0 bg-ink/72" />
 
       <Container width="wide" className="relative py-24">
