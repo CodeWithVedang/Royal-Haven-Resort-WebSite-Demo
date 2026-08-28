@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(npx --version)",
+      "Bash(curl -s -m 25 \"https://unsplash.com/napi/search/photos?query=udaipur%20palace&per_page=3\" -H \"Accept: application/json\")",
+      "Bash(echo \"=== EXIT:$? ===\")",
+      "Bash(curl -s -o /dev/null -w \"registry:%{http_code}\\\\n\" -m 20 https://registry.npmjs.org/next)",
+      "Bash(curl -s -o /dev/null -w \"gfonts:%{http_code}\\\\n\" -m 20 \"https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap\")",
+      "Read(//d/tmp/**)",
+      "Bash(curl -sL -m 30 -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 Chrome/120 Safari/537.36\" \"https://unsplash.com/s/photos/udaipur-hotel\" -o u1.html)",
+      "Bash(curl -sL -m 30 -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 Chrome/120 Safari/537.36\" \"https://www.pexels.com/search/udaipur%20palace/\" -o p1.html)",
+      "Bash(grep -oE 'pexels-photo-[0-9]{4,9}' p1.html)",
+      "Bash(curl -s -o /dev/null -w \"pexels_cdn:%{http_code}\\\\n\" -m 20 \"https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1200\")",
+      "Bash(curl -s -o /dev/null -w \"unsplash_cdn:%{http_code}\\\\n\" -m 20 \"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200\")",
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --yes)",
+      "Bash(echo \"EXIT:$?\")",
+      "Read(//tmp/**)",
+      "Bash(grep -oE '<img[^>]{0,400}?images\\\\.pexels\\\\.com/photos/[0-9]+[^>]{0,400}?>' p1.html)",
+      "Bash(grep -oE 'alt=\"[^\"]{10,90}\"' p1.html)",
+      "Bash(grep -oE '\"alt\":\"[^\"]{5,80}\"' p1.html)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 scrape.py q1.json)",
+      "Bash(pwd -W)",
+      "Bash(mkdir -p /d/tmp/scaffold)",
+      "Bash(rm -rf royal-haven)",
+      "Bash(npx --yes create-next-app@latest royal-haven --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --yes)",
+      "Bash(python3 scrape2.py q1.json)",
+      "Bash(rm -rf .git)",
+      "Bash(mv -f .gitignore README.md eslint.config.mjs next-env.d.ts next.config.ts package.json postcss.config.mjs tsconfig.json public src node_modules package-lock.json \"/d/PROJECT - VEDANGS/Demo_Project_1/\")"
+    ]
+  }
+}
