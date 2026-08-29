@@ -87,7 +87,7 @@ export const galleryItems: GalleryItem[] = [
     caption: "Lake View Suite, turned down for the night",
   },
   {
-    photo: p("26840829", "A calm room with white bedding, warm lighting and a wooden bench", "landscape"),
+    photo: p("6585757", "A calm room with the bed set between curtained windows and warm bedside lighting", "landscape"),
     category: "Rooms",
     caption: "Garden Verandah Room",
   },

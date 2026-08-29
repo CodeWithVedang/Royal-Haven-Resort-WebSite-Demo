@@ -54,7 +54,14 @@ export function RoomOfferCard({
 
         <div className="mt-5 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-line pt-4">
           <div>
-            <p className="num t-price text-ink">{formatINR(charges.averageNightly)}</p>
+            <p className="flex flex-wrap items-baseline gap-x-2.5">
+              <span className="num t-price text-ink">{formatINR(charges.averageNightly)}</span>
+              {charges.discount > 0 ? (
+                <span className="num t-caption text-stone line-through">
+                  {formatINR(charges.averageNightlyBefore)}
+                </span>
+              ) : null}
+            </p>
             <p className="t-caption mt-1 text-muted">
               average per night · {formatINR(charges.total)} total
               {charges.roomCount > 1 ? ` for ${charges.roomCount} rooms` : ""} incl. taxes

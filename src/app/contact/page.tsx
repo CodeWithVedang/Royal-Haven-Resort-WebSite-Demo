@@ -4,12 +4,13 @@ import { PageHero, Section } from "@/components/layout/PageHero";
 import { MapPanel } from "@/components/location/MapPanel";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { Figure } from "@/components/ui/Figure";
 import { IconClock, IconMail, IconPhone, IconPin, IconWhatsApp } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { bookingFaqs, generalFaqs } from "@/data/faq";
 import { arrival, distances } from "@/data/location";
-import { pageHero } from "@/data/photos";
+import { brandMoments, pageHero } from "@/data/photos";
 import {
   addressOneLine,
   directionsHref,
@@ -18,6 +19,24 @@ import {
   telHref,
   whatsappHref,
 } from "@/lib/site";
+
+const faqGroups = [
+  { title: "Staying here", items: generalFaqs },
+  { title: "Rates & booking", items: bookingFaqs },
+];
+
+/** Both FAQ groups, marked up so the answers can surface in search directly. */
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqGroups.flatMap((group) =>
+    group.items.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  ),
+};
 
 export const metadata: Metadata = {
   title: "Contact & Directions",
@@ -128,6 +147,17 @@ export default function ContactPage() {
                   </Button>
                 </div>
               </Reveal>
+
+              <Reveal variant="img" as="div" delay={200} className="mt-10">
+                <Figure
+                  photo={brandMoments.reception}
+                  sizes="(min-width: 1024px) 36vw, 100vw"
+                  source="feature"
+                  className="aspect-21/9"
+                  caption="The desk in Udaipur — the same four people, most days."
+                  scrim="bottom"
+                />
+              </Reveal>
             </div>
 
             <div className="lg:col-span-7">
@@ -181,7 +211,7 @@ export default function ContactPage() {
       <Section tone="ivory" id="faq">
         <Container width="wide">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
               <SectionHeading
                 eyebrow="Frequently asked"
                 title="Answers, without the brochure voice."
@@ -199,13 +229,19 @@ export default function ContactPage() {
                 <IconWhatsApp className="h-4 w-4" />
                 Ask on WhatsApp
               </Button>
+
+              <Reveal variant="img" as="div" delay={140} className="mt-10">
+                <Figure
+                  photo={brandMoments.courtyard}
+                  sizes="(min-width: 1024px) 28vw, 100vw"
+                  source="card"
+                  className="aspect-4/3"
+                />
+              </Reveal>
             </div>
 
             <div className="lg:col-span-8">
-              {[
-                { title: "Staying here", items: generalFaqs },
-                { title: "Rates & booking", items: bookingFaqs },
-              ].map((group) => (
+              {faqGroups.map((group) => (
                 <div key={group.title} className="mt-10 first:mt-0">
                   <h3 className="t-caption tracking-[0.2em] uppercase text-stone">{group.title}</h3>
                   <div className="mt-4 divide-y divide-line border-y border-line">
@@ -229,6 +265,10 @@ export default function ContactPage() {
             </div>
           </div>
         </Container>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+        />
       </Section>
     </>
   );

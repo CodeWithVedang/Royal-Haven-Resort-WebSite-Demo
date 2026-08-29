@@ -97,6 +97,15 @@ export function LocationSection() {
                 </Reveal>
               ))}
             </ul>
+
+            {/* Arrival logistics — the practical answer that belongs next to the map. */}
+            <Reveal delay={200}>
+              <p className="t-small mt-8 border-t border-line pt-6 text-espresso">
+                Send your flight or train number with the booking and a car will be waiting at
+                Maharana Pratap Airport or the station — thirty-five minutes from Dabok, and
+                complimentary with every suite.
+              </p>
+            </Reveal>
           </div>
         </div>
       </Container>

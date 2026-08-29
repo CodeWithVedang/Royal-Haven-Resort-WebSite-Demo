@@ -129,7 +129,8 @@ export function buildCharges(
     taxable,
     taxes,
     total: taxable + taxes,
-    averageNightly: nightCount > 0 ? Math.round(subtotal / (nightCount * roomCount)) : 0,
+    averageNightly: nightCount > 0 ? Math.round(taxable / (nightCount * roomCount)) : 0,
+    averageNightlyBefore: nightCount > 0 ? Math.round(subtotal / (nightCount * roomCount)) : 0,
     effectiveTaxRate: taxable > 0 ? taxes / taxable : 0,
   };
 }

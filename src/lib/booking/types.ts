@@ -54,7 +54,10 @@ export type Charges = {
   taxable: number;
   taxes: number;
   total: number;
+  /** What a room-night actually costs after any promotion, before tax. */
   averageNightly: number;
+  /** The same average before the promotion — shown struck through when it differs. */
+  averageNightlyBefore: number;
   /** Blended GST percentage, for the "incl. 18% GST" line. */
   effectiveTaxRate: number;
 };

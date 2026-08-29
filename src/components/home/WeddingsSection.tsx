@@ -81,6 +81,12 @@ export function WeddingsSection() {
                   </div>
                 ))}
               </dl>
+              {/* Scarcity, stated plainly — winter dates really do go early. */}
+              <p className="t-small mt-8 text-cream/70">
+                One family at a time, start to finish: forty-two keys, four venues and a kitchen that
+                puts 500 covers out on its own fires. Winter dates are usually taken by March, so the
+                earlier you ask, the more of the season is still open.
+              </p>
             </Reveal>
           </div>
 

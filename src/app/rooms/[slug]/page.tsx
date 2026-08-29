@@ -12,7 +12,7 @@ import { floorRate } from "@/lib/booking/rates";
 import { gstNote } from "@/lib/booking/pricing";
 import { formatINR } from "@/lib/format";
 import { photoUrl } from "@/lib/images";
-import { site, whatsappHref } from "@/lib/site";
+import { site, telHref, whatsappHref } from "@/lib/site";
 
 export function generateStaticParams() {
   return roomSlugs().map((slug) => ({ slug }));
@@ -129,32 +129,9 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
                 })}
               </ul>
 
-              <h2 className="t-h4 mt-12 text-ink">The details</h2>
-              <dl className="mt-5 border-t border-line">
-                {[
-                  { term: "Check-in", detail: `From ${site.policy.checkIn}` },
-                  { term: "Check-out", detail: `By ${site.policy.checkOut}` },
-                  { term: "Cancellation", detail: site.policy.cancellation },
-                  { term: "Children", detail: site.policy.children },
-                  { term: "Extra bed", detail: site.policy.extraBed },
-                  { term: "Smoking", detail: site.policy.smoking },
-                  { term: "Pets", detail: site.policy.pets },
-                ].map((item) => (
-                  <div
-                    key={item.term}
-                    className="flex flex-wrap gap-x-10 gap-y-1 border-b border-line py-3.5"
-                  >
-                    <dt className="t-caption w-32 shrink-0 tracking-[0.16em] uppercase text-muted">
-                      {item.term}
-                    </dt>
-                    <dd className="t-small flex-1 text-espresso">{item.detail}</dd>
-                  </div>
-                ))}
-              </dl>
-              <p className="t-caption mt-6 text-stone">{gstNote}</p>
             </div>
-            <aside className="lg:col-span-5">
-              <div className="border border-line bg-cream p-6 lg:sticky lg:top-28 lg:p-8">
+            <aside className="lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
+              <div className="border border-line bg-cream p-6 lg:p-8">
                 <p className="t-eyebrow text-brass">Reserve</p>
                 <p className="mt-5 flex items-baseline gap-2.5">
                   <span className="num t-h3 text-ink">{formatINR(from)}</span>
@@ -194,8 +171,37 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
                     </li>
                   ))}
                 </ul>
+
+                <p className="t-caption mt-7 border-t border-line pt-5 text-muted">
+                  Prefer to speak to someone?{" "}
+                  <a href={telHref} className="num link-underline text-ink hover:text-brass">
+                    {site.contact.phoneDisplay}
+                  </a>
+                </p>
               </div>
             </aside>
+          </div>
+
+          {/* Policies read better as a strip than as a column — and they answer the last questions before booking. */}
+          <div className="mt-16 border-t border-line pt-10">
+            <h2 className="t-h4 text-ink">The details</h2>
+            <dl className="mt-7 grid gap-x-10 gap-y-7 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { term: "Check-in", detail: `From ${site.policy.checkIn}` },
+                { term: "Check-out", detail: `By ${site.policy.checkOut}` },
+                { term: "Cancellation", detail: site.policy.cancellation },
+                { term: "Children", detail: site.policy.children },
+                { term: "Extra bed", detail: site.policy.extraBed },
+                { term: "Smoking", detail: site.policy.smoking },
+                { term: "Pets", detail: site.policy.pets },
+                { term: "Taxes", detail: gstNote },
+              ].map((item) => (
+                <div key={item.term} className="border-t border-line pt-4">
+                  <dt className="t-caption tracking-[0.16em] uppercase text-muted">{item.term}</dt>
+                  <dd className="t-small mt-2 text-espresso">{item.detail}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </Container>
       </Section>

@@ -91,7 +91,7 @@ export const rooms: Room[] = [
     extras: ["Private verandah with seating", "Walk-in rain shower", "Writing desk", "Daily fruit"],
     inclusions: ["Breakfast for two at The Courtyard", "Evening tea in the courtyard", "Wi-Fi"],
     photos: [
-      p("26840829", "A calm room with white bedding, warm lighting and a wooden bench"),
+      p("6585757", "A calm room with the bed set between curtained windows and warm bedside lighting"),
       p("13316618", "The bed with reading lights and a low upholstered stool"),
       p("5677270", "A bright bathroom with a window looking onto plants"),
       p("14036441", "The garden path outside the verandah in afternoon light"),

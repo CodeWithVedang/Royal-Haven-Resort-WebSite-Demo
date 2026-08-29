@@ -169,3 +169,20 @@ export function gstRateFor(nightlyRate: number): number {
   const { slabThreshold, lowerRate, upperRate } = site.policy.gst;
   return nightlyRate > slabThreshold ? upperRate : lowerRate;
 }
+
+/**
+ * A guest-typed mobile number, shown back to them the way it is written in
+ * India: "+91 98200 98200". Anything that is not a recognisable Indian mobile
+ * is returned untouched rather than mangled.
+ */
+export function formatGuestPhone(input: string): string {
+  const digits = input.replace(/\D/g, "");
+  if (digits.length === 10) return `+91 ${digits.slice(0, 5)} ${digits.slice(5)}`;
+  if (digits.length === 12 && digits.startsWith("91")) {
+    return `+91 ${digits.slice(2, 7)} ${digits.slice(7)}`;
+  }
+  if (digits.length === 11 && digits.startsWith("0")) {
+    return `+91 ${digits.slice(1, 6)} ${digits.slice(6)}`;
+  }
+  return input.trim();
+}

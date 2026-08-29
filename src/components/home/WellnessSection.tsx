@@ -48,7 +48,16 @@ export function WellnessSection() {
               </ul>
             </Reveal>
 
-            <Reveal delay={160} className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+            {/* The two questions the spa desk is asked most, answered before they are asked. */}
+            <Reveal delay={140}>
+              <p className="t-small mt-8 border-t border-clay/70 pt-6 text-espresso">
+                Treatments run from forty-five minutes to two hours, and the price above is for the
+                shortest version of each. There are four treatment rooms, so the morning slots go
+                first — most guests book theirs at check-in.
+              </p>
+            </Reveal>
+
+            <Reveal delay={180} className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
               <p className="t-caption flex items-center gap-2.5 text-muted">
                 <IconClock className="h-4 w-4 text-brass" />
                 {spa.hours}
@@ -83,6 +92,14 @@ export function WellnessSection() {
                   sizes="(min-width: 1024px) 24vw, 48vw"
                   source="card"
                   className="aspect-square"
+                />
+              </Reveal>
+              <Reveal variant="img" as="figure" delay={280} className="col-span-6">
+                <Figure
+                  photo={spa.photos[3]}
+                  sizes="(min-width: 1024px) 48vw, 100vw"
+                  source="feature"
+                  className="aspect-21/9"
                 />
               </Reveal>
             </div>

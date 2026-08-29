@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { Figure } from "@/components/ui/Figure";
 import { IconCheck, IconPhone, IconWhatsApp } from "@/components/ui/Icons";
 import { getRoom } from "@/data/rooms";
-import { formatINR, formatFullDate, stayHeadline } from "@/lib/format";
+import { formatINR, formatFullDate, formatGuestPhone, stayHeadline } from "@/lib/format";
 import { site, telHref, whatsappHref } from "@/lib/site";
 import type { PaymentOutcome } from "@/lib/payments";
 import type { Reservation } from "@/lib/booking/types";
@@ -26,7 +26,7 @@ export function Confirmation({
     { label: "Check-out", value: `${formatFullDate(search.checkOut)}, by ${site.policy.checkOut}` },
     { label: "Guests", value: stayHeadline(search.guests, search.rooms, charges.nightCount) },
     { label: "Total", value: `${formatINR(charges.total)} incl. GST`, mono: true },
-    { label: "Contact", value: `${guest.email} · ${guest.phone}` },
+    { label: "Contact", value: `${guest.email} · ${formatGuestPhone(guest.phone)}` },
   ];
 
   return (
