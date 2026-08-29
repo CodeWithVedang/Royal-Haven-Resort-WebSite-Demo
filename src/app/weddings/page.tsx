@@ -8,7 +8,8 @@ import { Figure } from "@/components/ui/Figure";
 import { IconCheck, IconMail, IconPhone, IconWhatsApp } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { pageHero } from "@/data/photos";
+import { brandMoments, pageHero } from "@/data/photos";
+import { testimonials } from "@/data/testimonials";
 import {
   weddingFaqs,
   weddingPackages,
@@ -21,6 +22,37 @@ import { formatINR } from "@/lib/format";
 import { site, telHref, whatsappHref } from "@/lib/site";
 
 const weddingsMailHref = `mailto:${site.contact.weddingsEmail}`;
+
+/** The one wedding review in the set — quoted where families are still deciding. */
+const weddingQuote =
+  testimonials.find((entry) => entry.context.startsWith("Wedding")) ?? testimonials[0];
+
+/** Sent-the-form anxiety is the real objection. Answer it before it forms. */
+const afterEnquiry = [
+  {
+    step: "A reply inside one working day",
+    body: "Usually the same evening, and from the manager who would run your wedding — not a shared inbox.",
+  },
+  {
+    step: "An honest answer on your date",
+    body: "If it is taken, you will be told plainly. If it is open, it is held for seven days at no cost while you decide.",
+  },
+  {
+    step: "An itemised quote",
+    body: "Rooms, food, venues, base decor and GST as separate lines, so you can see what moves and what does not.",
+  },
+];
+
+/** The venue answers are the page's best search asset — mark them up as such. */
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: weddingFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
 
 export const metadata: Metadata = {
   title: "Weddings & Celebrations",
@@ -61,6 +93,18 @@ export default function WeddingsPage() {
               <h2 className="t-h2 mt-4 text-balance text-ink">
                 One property, one team, and no other wedding running beside yours.
               </h2>
+
+              <figure className="mt-10 border-t border-line pt-8">
+                <blockquote className="t-quote text-ink">
+                  <span aria-hidden="true" className="mr-1 text-brass">
+                    &ldquo;
+                  </span>
+                  {weddingQuote.quote}
+                </blockquote>
+                <figcaption className="t-caption mt-5 tracking-[0.16em] uppercase text-muted">
+                  {weddingQuote.name} · {weddingQuote.city} · {weddingQuote.context}
+                </figcaption>
+              </figure>
             </Reveal>
             <Reveal delay={100} className="lg:col-span-7 lg:pl-6">
               <p className="t-lead">
@@ -303,7 +347,7 @@ export default function WeddingsPage() {
       <Section tone="cream" id="questions">
         <Container width="wide">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
               <SectionHeading
                 eyebrow="Asked at every site visit"
                 title="The questions families actually ask."
@@ -312,6 +356,28 @@ export default function WeddingsPage() {
                 Anything not answered here, ask on WhatsApp — the wedding desk replies between 9:00
                 and 21:00, and reads messages after that.
               </p>
+              <Button
+                href={whatsappHref(
+                  "Hello Royal Haven, I have a question about weddings at the resort.",
+                )}
+                variant="outline"
+                external
+                className="mt-7"
+              >
+                <IconWhatsApp className="h-4 w-4" />
+                Ask the Wedding Desk
+              </Button>
+
+              <Reveal variant="img" as="div" delay={120} className="mt-10">
+                <Figure
+                  photo={brandMoments.diya}
+                  sizes="(min-width: 1024px) 28vw, 100vw"
+                  source="card"
+                  className="aspect-4/3"
+                  caption="Diyas set along the courtyard steps, an hour before the sangeet."
+                  scrim="bottom"
+                />
+              </Reveal>
             </div>
 
             <div className="lg:col-span-8">
@@ -334,6 +400,10 @@ export default function WeddingsPage() {
             </div>
           </div>
         </Container>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+        />
       </Section>
       <Section tone="ink" id="enquiry">
         <Container width="wide">
@@ -398,6 +468,20 @@ export default function WeddingsPage() {
                 <IconWhatsApp className="h-4 w-4" />
                 Plan Your Stay on WhatsApp
               </Button>
+
+              <ol className="mt-10 space-y-5 border-t border-cream/15 pt-8">
+                {afterEnquiry.map((item, index) => (
+                  <li key={item.step} className="flex gap-4">
+                    <span className="num t-caption mt-1 shrink-0 tracking-[0.2em] text-brass-soft">
+                      {`${index + 1}`.padStart(2, "0")}
+                    </span>
+                    <span>
+                      <span className="t-body block text-cream">{item.step}</span>
+                      <span className="t-small mt-1 block text-cream/65">{item.body}</span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
             </div>
 
             <div className="lg:col-span-7">

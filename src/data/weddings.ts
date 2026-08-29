@@ -246,4 +246,24 @@ export const weddingFaqs = [
     answer:
       "Often the case, and it works well. Our team runs the property and hospitality; your planner runs the design and the family. We share a single run-of-show.",
   },
+  {
+    question: "Can we bring an outside caterer?",
+    answer:
+      "The kitchen cooks every meal, and it is the one thing we do not outsource — 500 covers off our own fires is what the brigade is built for. Specialist counters, a halwai from home, or a chaat cart are welcome alongside, and we give them a prep bay and a gas line.",
+  },
+  {
+    question: "Is the property vegetarian-only? Can you cook Jain?",
+    answer:
+      "Both menus run. Vegetarian and non-vegetarian kitchens are kept separate, and Jain food is prepared without onion, garlic or root vegetables in a dedicated section — tell us the count and we plan the line around it.",
+  },
+  {
+    question: "How does the baraat arrive?",
+    answer:
+      "Through the main gate and up the drive, which is wide enough for a horse, a vintage car or a band of twenty. Elephants are not used here. The drive is held for forty minutes so no arriving guest is caught behind the procession.",
+  },
+  {
+    question: "What happens if we have to postpone?",
+    answer:
+      "Dates can be moved once, up to sixty days before arrival, into any open date within the following twelve months — the amount paid moves with you. Beyond sixty days the standard cancellation terms apply, and they are written into the contract rather than left to a conversation.",
+  },
 ];
