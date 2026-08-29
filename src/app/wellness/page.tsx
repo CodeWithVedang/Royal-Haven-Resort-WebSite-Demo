@@ -133,7 +133,7 @@ export default function WellnessPage() {
                       <span className="t-caption tracking-[0.16em] uppercase text-muted">
                         {duration.minutes} minutes
                       </span>
-                      <span className="num font-serif text-xl font-light text-ink">
+                      <span className="num font-serif text-xl font-normal text-ink">
                         {formatINR(duration.price)}
                       </span>
                     </li>

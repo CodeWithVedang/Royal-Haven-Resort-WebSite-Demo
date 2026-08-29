@@ -121,7 +121,7 @@ export function Intro() {
               <div key={stat.label} className="px-1 lg:px-0">
                 <dt className="sr-only">{stat.label}</dt>
                 <dd>
-                  <span className="num block font-serif text-5xl leading-none font-light text-ink lg:text-6xl">
+                  <span className="num block font-serif text-5xl leading-none font-normal text-ink lg:text-6xl">
                     {stat.figure}
                   </span>
                   <span className="t-caption mt-4 block max-w-36 tracking-[0.18em] uppercase text-muted">

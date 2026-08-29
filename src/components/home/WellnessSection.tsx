@@ -32,7 +32,7 @@ export function WellnessSection() {
                       className="flex items-baseline justify-between gap-6 border-b border-clay/70 py-4"
                     >
                       <span>
-                        <span className="font-serif text-xl leading-tight font-light text-ink">
+                        <span className="font-serif text-xl leading-tight font-normal text-ink">
                           {treatment.name}
                         </span>
                         <span className="t-caption mt-1 block tracking-[0.14em] uppercase text-muted">

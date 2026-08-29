@@ -102,6 +102,13 @@ export const site = {
     /** "demo" keeps the checkout in simulation; swap for razorpay | stripe | payu. */
     paymentProvider: (env.paymentProvider || "demo") as "demo" | "razorpay" | "stripe" | "payu",
   },
+
+  /** Studio credit in the footer. One place to change when the site is handed over. */
+  credit: {
+    label: "CodeWithVedang",
+    href: "https://github.com/CodeWithVedang",
+    stack: "Next.js, React & Tailwind CSS",
+  },
 } as const;
 
 /* -------------------------------------------------------------------------- */

@@ -92,7 +92,7 @@ export function SummaryPanel({
           </div>
           <div className="mt-4 flex items-baseline justify-between gap-4 border-t border-ink/15 pt-4">
             <dt className="t-caption tracking-[0.16em] uppercase text-espresso">Total payable</dt>
-            <dd className="num font-serif text-3xl leading-none font-light text-ink">
+            <dd className="num font-serif text-3xl leading-none font-normal text-ink">
               {formatINR(charges.total)}
             </dd>
           </div>

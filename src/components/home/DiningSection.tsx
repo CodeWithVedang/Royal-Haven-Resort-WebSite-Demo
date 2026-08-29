@@ -49,7 +49,7 @@ export function DiningSection() {
                     <dt className="t-caption tracking-[0.2em] uppercase text-cream/55">
                       {slot.label}
                     </dt>
-                    <dd className="num mt-2 font-serif text-xl font-light text-cream">
+                    <dd className="num mt-2 font-serif text-xl font-normal text-cream">
                       {slot.value}
                     </dd>
                   </div>
@@ -67,7 +67,7 @@ export function DiningSection() {
                   >
                     <span className="min-w-0">
                       <span className="flex items-center gap-2.5">
-                        <span className="font-serif text-xl leading-tight font-light text-cream">
+                        <span className="font-serif text-xl leading-tight font-normal text-cream">
                           {dish.name}
                         </span>
                         {dish.vegetarian ? (

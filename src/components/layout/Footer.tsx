@@ -2,7 +2,13 @@ import Link from "next/link";
 import { Monogram } from "@/components/brand/Logo";
 import { Diamond } from "@/components/ui/Badge";
 import { Container } from "@/components/ui/Container";
-import { IconMail, IconPhone, IconPin } from "@/components/ui/Icons";
+import {
+  IconGitHub,
+  IconMail,
+  IconPhone,
+  IconPin,
+  IconWhatsApp,
+} from "@/components/ui/Icons";
 import {
   addressOneLine,
   directionsHref,
@@ -10,6 +16,7 @@ import {
   mailHref,
   site,
   telHref,
+  whatsappHref,
 } from "@/lib/site";
 
 export function Footer() {
@@ -18,12 +25,12 @@ export function Footer() {
   return (
     <footer className="on-dark bg-olive text-cream">
       <Container width="wide" className="py-16 lg:py-24">
-        <div className="grid gap-14 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-5">
+        <div className="grid gap-14 lg:grid-cols-12 lg:items-start lg:gap-10">
+          <div className="lg:col-span-4">
             <span className="text-brass-soft">
               <Monogram className="h-11 w-11" />
             </span>
-            <p className="mt-6 font-serif text-2xl leading-none font-light tracking-[0.2em] uppercase">
+            <p className="mt-6 font-serif text-2xl leading-none font-normal tracking-[0.2em] uppercase">
               {site.brand.name}
             </p>
             <p className="t-caption mt-3 tracking-[0.3em] uppercase text-cream/55">
@@ -65,7 +72,7 @@ export function Footer() {
           </div>
 
           {footerNav.map((group) => (
-            <nav key={group.title} aria-label={group.title} className="lg:col-span-3">
+            <nav key={group.title} aria-label={group.title} className="lg:col-span-2">
               <h2 className="t-eyebrow text-brass-soft">{group.title}</h2>
               <ul className="mt-6 space-y-3">
                 {group.items.map((item) => (
@@ -82,7 +89,41 @@ export function Footer() {
             </nav>
           ))}
 
-          <div className="lg:col-span-1 lg:col-start-11 lg:justify-self-end">
+          {/* Reservations detail — the questions the desk is asked before every booking. */}
+          <div className="lg:col-span-2">
+            <h2 className="t-eyebrow text-brass-soft">Reservations</h2>
+            <dl className="mt-6 space-y-3">
+              <div>
+                <dt className="t-caption text-cream/45">Check-in</dt>
+                <dd className="t-small num text-cream/75">{site.policy.checkIn}</dd>
+              </div>
+              <div>
+                <dt className="t-caption text-cream/45">Check-out</dt>
+                <dd className="t-small num text-cream/75">{site.policy.checkOut}</dd>
+              </div>
+              <div>
+                <dt className="t-caption text-cream/45">Front desk</dt>
+                <dd className="t-small text-cream/75">Open 24 hours</dd>
+              </div>
+              <div>
+                <dt className="t-caption text-cream/45">Reservations</dt>
+                <dd className="t-small num text-cream/75">
+                  {site.contact.hours.reservations.replace("Reservations desk · ", "")}
+                </dd>
+              </div>
+            </dl>
+            <a
+              href={whatsappHref()}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="group mt-6 inline-flex items-center gap-2.5 text-cream/75 hover:text-cream"
+            >
+              <IconWhatsApp className="h-4 w-4 text-brass-soft" />
+              <span className="link-underline t-small">Ask on WhatsApp</span>
+            </a>
+          </div>
+
+          <div className="lg:col-span-2">
             <h2 className="t-eyebrow text-brass-soft">Follow</h2>
             <ul className="mt-6 space-y-3">
               {site.social.map((channel) => (
@@ -98,6 +139,9 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+            <p className="t-caption mt-6 text-cream/45">
+              Tag us at @royalhaven and we will send the photograph on.
+            </p>
           </div>
         </div>
 
@@ -113,6 +157,26 @@ export function Footer() {
             © {year} {site.brand.legalName}. A fictional property built as a demonstration —
             reservations made here are not real and no payment is taken.
           </p>
+        </div>
+
+        {/* Studio credit — who built the site, on the record. */}
+        <div className="mt-9 flex flex-col gap-3 border-t border-cream/10 pt-7 sm:flex-row sm:items-center sm:justify-between">
+          <a
+            href={site.credit.href}
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label={`Built by ${site.credit.label} — view the GitHub profile`}
+            className="group inline-flex items-center gap-2.5"
+          >
+            <IconGitHub className="h-[1.15rem] w-[1.15rem] text-cream/55 transition-colors duration-500 group-hover:text-brass-soft" />
+            <span className="t-caption tracking-[0.14em] uppercase text-cream/55">
+              Built by{" "}
+              <span className="link-underline text-cream/85 group-hover:text-cream">
+                {site.credit.label}
+              </span>
+            </span>
+          </a>
+          <p className="t-caption text-cream/35">Built with {site.credit.stack}</p>
         </div>
       </Container>
     </footer>

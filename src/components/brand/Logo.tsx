@@ -46,7 +46,7 @@ export function Logo({ tone = "ink", compact, className, href = "/" }: LogoProps
     >
       <span
         className={cn(
-          "font-serif text-[1.375rem] leading-none font-light tracking-[0.2em] uppercase transition-colors duration-500 sm:text-[1.5rem]",
+          "font-serif text-[1.375rem] leading-none font-normal tracking-[0.2em] uppercase transition-colors duration-500 sm:text-[1.5rem]",
           tone === "light" ? "text-cream" : "text-ink",
         )}
       >

@@ -91,7 +91,7 @@ export function WeddingEnquiryForm() {
         <dl className="mt-8 grid gap-x-10 gap-y-4 border-y border-cream/15 py-6 sm:grid-cols-3">
           <div>
             <dt className="t-caption tracking-[0.18em] uppercase text-cream/55">Reference</dt>
-            <dd className="num mt-1.5 font-serif text-xl font-light text-cream">
+            <dd className="num mt-1.5 font-serif text-xl font-normal text-cream">
               {receipt.reference}
             </dd>
           </div>

@@ -82,7 +82,7 @@ export function BookingWidget({ className }: { className?: string }) {
             <span className="t-caption block font-medium tracking-[0.16em] uppercase text-espresso">
               Dates
             </span>
-            <span className="mt-2 block font-serif text-xl leading-none font-light text-ink">
+            <span className="mt-2 block font-serif text-xl leading-none font-normal text-ink">
               {dateLabel}
             </span>
           </span>

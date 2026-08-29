@@ -24,7 +24,7 @@ export function Testimonials() {
             action={
               <div className="flex items-center gap-5">
                 <p className="flex items-baseline gap-2">
-                  <span className="num font-serif text-5xl leading-none font-light text-ink">
+                  <span className="num font-serif text-5xl leading-none font-normal text-ink">
                     {guestRating.score}
                   </span>
                   <span className="t-small num text-muted">/ {guestRating.outOf}</span>

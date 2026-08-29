@@ -136,6 +136,7 @@ body {
   letter-spacing: 0.005em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
@@ -174,7 +175,7 @@ body {
 
 .t-display {
   font-family: var(--font-serif);
-  font-weight: 300;
+  font-weight: 500;
   font-size: clamp(2.6rem, 7.4vw, 6.25rem);
   line-height: 0.98;
   letter-spacing: -0.022em;
@@ -182,7 +183,7 @@ body {
 
 .t-h1 {
   font-family: var(--font-serif);
-  font-weight: 300;
+  font-weight: 500;
   font-size: clamp(2.125rem, 5.1vw, 4rem);
   line-height: 1.06;
   letter-spacing: -0.018em;
@@ -190,7 +191,7 @@ body {
 
 .t-h2 {
   font-family: var(--font-serif);
-  font-weight: 300;
+  font-weight: 500;
   font-size: clamp(1.75rem, 3.5vw, 2.9rem);
   line-height: 1.12;
   letter-spacing: -0.014em;
@@ -198,7 +199,7 @@ body {
 
 .t-h3 {
   font-family: var(--font-serif);
-  font-weight: 400;
+  font-weight: 500;
   font-size: clamp(1.375rem, 2.1vw, 1.875rem);
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -206,14 +207,14 @@ body {
 
 .t-h4 {
   font-family: var(--font-serif);
-  font-weight: 400;
+  font-weight: 500;
   font-size: clamp(1.125rem, 1.5vw, 1.375rem);
   line-height: 1.32;
 }
 
 .t-quote {
   font-family: var(--font-serif);
-  font-weight: 300;
+  font-weight: 400;
   font-style: italic;
   font-size: clamp(1.375rem, 2.6vw, 2.125rem);
   line-height: 1.4;
@@ -222,7 +223,7 @@ body {
 
 .t-lead {
   font-size: clamp(1.0625rem, 1.15vw, 1.1875rem);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.78;
   color: var(--color-espresso);
 }
@@ -230,7 +231,7 @@ body {
 .t-body {
   font-size: 1rem;
   line-height: 1.8;
-  color: var(--color-muted);
+  color: var(--color-espresso);
 }
 
 .t-small {
@@ -248,7 +249,7 @@ body {
 
 .t-eyebrow {
   font-size: 0.6875rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.4;
   letter-spacing: 0.26em;
   text-transform: uppercase;
@@ -257,14 +258,14 @@ body {
 
 .t-nav {
   font-size: 0.75rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.17em;
   text-transform: uppercase;
 }
 
 .t-figure {
   font-family: var(--font-serif);
-  font-weight: 300;
+  font-weight: 500;
   font-size: clamp(2.5rem, 4.6vw, 3.5rem);
   line-height: 1;
   letter-spacing: -0.02em;
@@ -273,7 +274,7 @@ body {
 
 .t-price {
   font-family: var(--font-serif);
-  font-weight: 400;
+  font-weight: 500;
   font-variant-numeric: lining-nums tabular-nums;
   letter-spacing: -0.01em;
 }
@@ -290,7 +291,7 @@ body {
 .on-dark .t-body,
 .on-dark .t-small,
 .on-dark .t-caption {
-  color: rgba(247, 243, 236, 0.72);
+  color: rgba(247, 243, 236, 0.78);
 }
 .on-dark {
   color: var(--color-cream);

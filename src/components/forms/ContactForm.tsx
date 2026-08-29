@@ -66,7 +66,7 @@ export function ContactForm() {
         <dl className="mt-8 grid gap-x-10 gap-y-4 border-y border-line py-6 sm:grid-cols-2">
           <div>
             <dt className="t-caption tracking-[0.18em] uppercase text-muted">Reference</dt>
-            <dd className="num mt-1.5 font-serif text-xl font-light text-ink">
+            <dd className="num mt-1.5 font-serif text-xl font-normal text-ink">
               {receipt.reference}
             </dd>
           </div>

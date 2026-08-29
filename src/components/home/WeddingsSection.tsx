@@ -71,7 +71,7 @@ export function WeddingsSection() {
                   <div key={stat.label}>
                     <dt className="sr-only">{stat.label}</dt>
                     <dd>
-                      <span className="num block font-serif text-4xl leading-none font-light text-cream lg:text-5xl">
+                      <span className="num block font-serif text-4xl leading-none font-normal text-cream lg:text-5xl">
                         {stat.figure}
                       </span>
                       <span className="t-caption mt-2.5 block tracking-[0.16em] uppercase text-cream/60">
@@ -91,7 +91,7 @@ export function WeddingsSection() {
                 {weddingVenues.map((venue) => (
                   <li key={venue.slug} className="border-b border-cream/12 py-5">
                     <div className="flex items-baseline justify-between gap-6">
-                      <h3 className="font-serif text-xl leading-tight font-light text-cream">
+                      <h3 className="font-serif text-xl leading-tight font-normal text-cream">
                         {venue.name}
                       </h3>
                       <span className="num t-caption shrink-0 tracking-[0.14em] uppercase text-brass-soft">
@@ -131,7 +131,7 @@ export function WeddingsSection() {
                     Most-booked package
                   </p>
                   <p className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                    <span className="font-serif text-2xl leading-none font-light text-cream">
+                    <span className="font-serif text-2xl leading-none font-normal text-cream">
                       {signature.name}
                     </span>
                     <span className="t-caption num text-cream/70">

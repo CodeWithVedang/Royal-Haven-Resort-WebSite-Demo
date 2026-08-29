@@ -85,7 +85,7 @@ export default function DiningPage() {
                         <dt className="t-caption tracking-[0.18em] uppercase text-muted">
                           {slot.label}
                         </dt>
-                        <dd className="num mt-1.5 font-serif text-xl font-light text-ink">
+                        <dd className="num mt-1.5 font-serif text-xl font-normal text-ink">
                           {slot.value}
                         </dd>
                       </div>
@@ -182,7 +182,7 @@ export default function DiningPage() {
                     >
                       <div className="min-w-0">
                         <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
-                          <span className="font-serif text-xl leading-tight font-light text-ink">
+                          <span className="font-serif text-xl leading-tight font-normal text-ink">
                             {dish.name}
                           </span>
                           {dish.vegetarian ? (

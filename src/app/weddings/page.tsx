@@ -78,7 +78,7 @@ export default function WeddingsPage() {
               <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-line pt-8 sm:grid-cols-4">
                 {weddingsIntro.stats.map((stat) => (
                   <div key={stat.label}>
-                    <dt className="num font-serif text-4xl leading-none font-light text-ink lg:text-5xl">
+                    <dt className="num font-serif text-4xl leading-none font-normal text-ink lg:text-5xl">
                       {stat.figure}
                     </dt>
                     <dd className="t-caption mt-3 tracking-[0.16em] uppercase text-muted">
@@ -146,13 +146,13 @@ export default function WeddingsPage() {
                   <dl className="mt-8 grid grid-cols-3 gap-x-6 gap-y-4 border-y border-line py-5">
                     <div>
                       <dt className="t-caption tracking-[0.16em] uppercase text-muted">Seated</dt>
-                      <dd className="num mt-1.5 font-serif text-2xl font-light text-ink">
+                      <dd className="num mt-1.5 font-serif text-2xl font-normal text-ink">
                         {venue.seated}
                       </dd>
                     </div>
                     <div>
                       <dt className="t-caption tracking-[0.16em] uppercase text-muted">Standing</dt>
-                      <dd className="num mt-1.5 font-serif text-2xl font-light text-ink">
+                      <dd className="num mt-1.5 font-serif text-2xl font-normal text-ink">
                         {venue.standing}
                       </dd>
                     </div>

@@ -97,7 +97,11 @@ export const venues: Venue[] = [
       "Suite terraces can be laid for dinner at no additional charge; tell the butler in the morning.",
     ],
     photo: p("3769980", "A tray of coffee being carried along the colonnade"),
-    photos: [p("3769980", "A tray of coffee being carried along the colonnade")],
+    photos: [
+      p("3769980", "A tray of coffee being carried along the colonnade"),
+      p("8525638", "A verandah table laid for breakfast in the morning"),
+      p("34768070", "Coffee poured at an outdoor table before the day begins"),
+    ],
   },
 ];
 
