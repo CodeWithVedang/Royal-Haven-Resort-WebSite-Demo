@@ -7,7 +7,10 @@ type Size = "sm" | "md" | "lg";
 const BASE =
   "group/btn relative inline-flex items-center justify-center gap-2.5 t-nav whitespace-nowrap rounded-xs " +
   "transition-[background-color,color,border-color,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] " +
-  "disabled:pointer-events-none disabled:opacity-45";
+  "disabled:pointer-events-none disabled:opacity-45 " +
+  // On a 320px phone a long label cannot stay on one line without pushing the
+  // page sideways, so below 640px it wraps and the button grows instead.
+  "max-sm:whitespace-normal max-sm:text-center";
 
 const VARIANTS: Record<Variant, string> = {
   solid: "bg-ink text-cream border border-ink hover:bg-charcoal",
@@ -18,9 +21,9 @@ const VARIANTS: Record<Variant, string> = {
 };
 
 const SIZES: Record<Size, string> = {
-  sm: "h-10 px-5 text-[0.6875rem]",
-  md: "h-12 px-7",
-  lg: "h-14 px-9",
+  sm: "h-10 px-5 text-[0.6875rem] max-sm:h-auto max-sm:min-h-10 max-sm:py-2.5",
+  md: "h-12 px-7 max-sm:h-auto max-sm:min-h-12 max-sm:px-5 max-sm:py-3",
+  lg: "h-14 px-9 max-sm:h-auto max-sm:min-h-14 max-sm:px-6 max-sm:py-4",
 };
 
 type CommonProps = {

@@ -33,8 +33,14 @@ export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [receipt, setReceipt] = useState<EnquiryReceipt | null>(null);
 
+  /** A field stops being wrong the moment the guest starts fixing it. */
   function set(patch: Partial<Enquiry>) {
     setEnquiry((current) => ({ ...current, ...patch }));
+    setErrors((current) => {
+      const next = { ...current };
+      for (const key of Object.keys(patch) as (keyof EnquiryErrors)[]) delete next[key];
+      return next;
+    });
   }
 
   async function handleSubmit(event: React.FormEvent) {

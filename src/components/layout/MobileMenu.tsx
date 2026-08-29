@@ -82,7 +82,10 @@ export function MobileMenu({ open, onClose, pathname }: MobileMenuProps) {
               <span className="t-h3 text-ink transition-colors duration-300 group-hover:text-brass">
                 Contact
               </span>
-              <span className="t-caption num shrink-0 text-stone">07</span>
+              <span className="t-caption num shrink-0 text-stone">
+                07
+                <span className="sr-only">.</span>
+              </span>
             </Link>
           </li>
         </ul>
@@ -91,7 +94,7 @@ export function MobileMenu({ open, onClose, pathname }: MobileMenuProps) {
           <Button href="/booking" onClick={onClose} block size="lg">
             Book Your Stay
           </Button>
-          <Button href={whatsappHref()} variant="outline" block size="lg">
+          <Button href={whatsappHref()} variant="outline" block size="lg" external>
             <IconWhatsApp className="h-4 w-4" />
             Plan Your Stay on WhatsApp
           </Button>

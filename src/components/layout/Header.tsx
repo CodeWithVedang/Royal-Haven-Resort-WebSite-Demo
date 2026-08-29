@@ -45,14 +45,15 @@ export function Header() {
       >
         <div
           className={cn(
-            "mx-auto flex w-full max-w-[104rem] items-center justify-between gap-8 px-5 transition-[height] duration-500 sm:px-8 lg:px-12",
+            "mx-auto flex w-full max-w-[104rem] items-center justify-between gap-4 px-5 transition-[height] duration-500 sm:px-8 lg:px-6 xl:gap-8 xl:px-12",
             solid ? "h-18 lg:h-20" : "h-22 lg:h-28",
           )}
         >
           <Logo tone={tone} compact={solid} className="shrink-0" />
 
           <nav aria-label="Primary" className="hidden lg:block">
-            <ul className="flex items-center gap-9">
+            {/* Six labels, a logo and a CTA only fit at generous spacing from 1280 up. */}
+            <ul className="flex items-center gap-4 xl:gap-9">
               {primaryNav.map((item) => {
                 const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
                 return (
@@ -74,17 +75,22 @@ export function Header() {
             </ul>
           </nav>
 
-          <div className="hidden items-center gap-6 lg:flex">
+          <div className="hidden items-center gap-3 lg:flex xl:gap-6">
             <Link
               href="/contact"
               className={cn(
-                "link-underline t-nav transition-colors duration-400",
+                "link-underline t-nav hidden transition-colors duration-400 xl:inline-block",
                 solid ? "text-espresso hover:text-ink" : "text-cream/85 hover:text-cream",
               )}
             >
               Contact
             </Link>
-            <Button href="/booking" size="sm" variant={solid ? "solid" : "light"}>
+            <Button
+              href="/booking"
+              size="sm"
+              variant={solid ? "solid" : "light"}
+              className="max-xl:px-4"
+            >
               Book Your Stay
             </Button>
           </div>

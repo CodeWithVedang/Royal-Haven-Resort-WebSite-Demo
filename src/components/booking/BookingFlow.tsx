@@ -101,8 +101,12 @@ function reducer(state: State, action: Action): State {
       return { ...state, status: "idle", error: action.message, step: "dates" };
     case "select":
       return { ...state, selected: action.roomSlug, step: "review" };
-    case "guest:patch":
-      return { ...state, guest: { ...state.guest, ...action.patch } };
+    case "guest:patch": {
+      // A field stops being wrong the moment the guest starts fixing it.
+      const guestErrors = { ...state.guestErrors };
+      for (const key of Object.keys(action.patch) as (keyof GuestErrors)[]) delete guestErrors[key];
+      return { ...state, guest: { ...state.guest, ...action.patch }, guestErrors };
+    }
     case "guest:errors":
       return { ...state, guestErrors: action.errors, pending: false };
     case "payment:mode":
